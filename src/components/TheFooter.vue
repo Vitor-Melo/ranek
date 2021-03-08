@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 footer {
   background: #87F;
   padding: 25px 0;
