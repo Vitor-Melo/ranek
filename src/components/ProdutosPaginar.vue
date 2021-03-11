@@ -27,6 +27,22 @@ export default {
     }
   },
   computed: {
+    paginas(){
+      const current = Number(this.$route.query._page);
+      const range = 9;
+      const offset = Math.ceil(range / 2);
+      const total = this.paginasTotal;
+      const pagesArray = [];
+
+      for (let i=1; i< total; i++){
+        pagesArray.push(i);
+      }
+
+      pagesArray.splice(0, current - offset);
+      pagesArray.splice(range, total);
+
+
+    },
     paginasTotal(){
       const total = this.produtosTotal / this.produtosPorPagina;
       return (total !== Infinity) ? Math.ceil(total) : 0;
